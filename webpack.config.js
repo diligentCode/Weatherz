@@ -1,6 +1,7 @@
 // webpack.config.js
 import path from "node:path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
 
 export default {
   mode: "development",
@@ -18,6 +19,9 @@ export default {
     new HtmlWebpackPlugin({
       template: "./src/template.html",
     }),
+    new CopyPlugin({
+      patterns: [{ from: "src/assets", to: "assets" }],
+    }),
   ],
   module: {
     rules: [
@@ -30,7 +34,7 @@ export default {
         use: ["html-loader"],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|mp4|webm)$/i,
         type: "asset/resource",
       },
     ],

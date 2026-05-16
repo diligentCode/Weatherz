@@ -1,28 +1,29 @@
+// index.js
 import "./style.css";
-import { getData } from "./fetchData.js";
-
-getData();
+import { displayData } from "./domManagement.js";
 
 window.addEventListener("load", () => {
   navigator.geolocation.getCurrentPosition(
     async (position) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-
-      //displayData
+      // Pass coordinates directly to the API
+      displayData(`${latitude},${longitude}`);
     },
     (error) => {
-      //Display data london
+      console.warn("Geolocation denied or failed. Defaulting to London.");
+      displayData("london");
     },
   );
 });
 
-const inputSearch = document.getElementsByClassName("loacation-search");
+const inputSearch = document.querySelector(".location-search");
 
 inputSearch.addEventListener("keydown", (e) => {
-  if (e.key == "Enter") {
+  if (e.key === "Enter") {
     const location = inputSearch.value.trim();
-    //Check if its not empty
-    //display Data
+    if (location !== "") {
+      displayData(location);
+    }
   }
 });
