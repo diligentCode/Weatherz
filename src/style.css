@@ -3,7 +3,7 @@
   --text-primary: #ffffff;
   --text-secondary: #c5c5cf;
   --card-dark: #0f0f14d9;
-  --lhs-bg: rgba(20, 20, 30, 0.6);
+  --lhs-bg: rgba(20, 20, 30, 0.7);
   --rhs-bg: rgba(10, 10, 15, 0.8);
   --wrapper-border: rgba(255, 255, 255, 0.1);
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -39,7 +39,7 @@ body {
   max-width: 1200px;
   border-radius: 28px;
   overflow: hidden;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
   border: 1px solid var(--wrapper-border);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
 }
