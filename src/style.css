@@ -23,15 +23,29 @@
 }
 
 body {
-  background: url("https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=2000&auto=format&fit=crop")
-    no-repeat center center fixed;
-  background-size: cover;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
   color: var(--text-primary);
+}
+
+#bg-video {
+  /* Fixes the video to the screen */
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* Forces it to fill the screen */
+  width: 100vw;
+  height: 100vh;
+
+  /* CRITICAL: Stops stretching, cuts off edges instead */
+  object-fit: cover;
+
+  /* Pushes the video behind all text and elements */
+  z-index: -1;
 }
 
 .weather-wrapper {
@@ -153,6 +167,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  opacity: 0.95;
 }
 
 .forecast-section,
